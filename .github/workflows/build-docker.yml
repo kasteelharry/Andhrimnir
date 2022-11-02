@@ -1,0 +1,21 @@
+name: Build and publish the Docker image.
+on: 
+  push:
+    branches:
+      - dev
+      - master
+
+jobs:
+  build-docker-and-deploy:  # job name
+    runs-on: ubuntu-latest  # runner name : (ubuntu latest version) 
+    steps:
+    - uses: actions/checkout@v2 # first action : checkout source code
+    - name: docker login
+      run: | # log into docker hub account
+        docker login -u ${{secrets.DOCKERHUB_USERNAME}} -p ${{secrets.DOCKERHUB_TOKEN}}
+    - name: show files
+      run: ls -a
+    - name: Build the Docker image # push The image to the docker hub
+      run: docker build . --file .dockerfile --tag ${{secrets.DOCKERHUB_USERNAME}}/${{secrets.DOCKER_REPO}}
+    - name: Docker Push
+      run: docker push ${{secrets.DOCKERHUB_USERNAME}}/${{secrets.DOCKER_REPO}}:latest
