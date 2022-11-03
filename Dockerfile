@@ -16,6 +16,5 @@ RUN pip install -r requirements.txt
 # Give execution rights on the cron scripts
 RUN chmod 0644 Andhrimnir.py
 
-VOLUME []
 # run crond as main process of container
 CMD ["cron", "-f"]
