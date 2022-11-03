@@ -1,6 +1,9 @@
-FROM joyzoursky/python-chromedriver:3.6-alpine3.7
+FROM selenium/standalone-chrome
 #Install Cron
-RUN apt-get update
+USER root
+RUN apt-get update && apt-get install python3-distutils -y
+RUN wget https://bootstrap.pypa.io/get-pip.py
+RUN python3 get-pip.py
 RUN apt-get -y install cron
 # Copy the crontab file
 COPY crontab /etc/cron.d/crontab
