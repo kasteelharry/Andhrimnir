@@ -1,4 +1,4 @@
-FROM python:3.9-slim-buster
+FROM joyzoursky/python-chromedriver:3.6-alpine3.7
 #Install Cron
 RUN apt-get update
 RUN apt-get -y install cron
