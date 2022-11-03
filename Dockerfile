@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install python3-distutils -y
 RUN wget https://bootstrap.pypa.io/get-pip.py
 RUN python3 get-pip.py
 RUN apt-get -y install cron
+RUN apt-get install nano
 # Copy the crontab file
 COPY crontab /etc/cron.d/crontab
 RUN chmod 0644 /etc/cron.d/crontab
