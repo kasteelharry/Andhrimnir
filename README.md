@@ -4,7 +4,7 @@ The goal of this github repo is to scrape the popular Dutch website [eetlijst](h
 
 ## Installation
 
-To install Andhrimnir, clone the repo and create a file called ``credentials.py`` with the following code:
+To install Andhrimnir, clone the repo and create a file called ``results/credentials.py`` with the following code:
 
 ```python
 username="USERNAME"
@@ -19,7 +19,7 @@ Andhrimnir is also able to be run in a docker image. For this compose the docker
 
 ``Docker build . --file Dockerfile --tag YOUR_TAG_NAME``
 
-To run the docker image run the followin command:
+To run the docker image run the following command:
 
 ```python
 docker run
@@ -28,7 +28,7 @@ docker run
   --net='bridge'
   --privileged=true
   -l net.unraid.docker.managed=dockerman
-  -v '/mnt/user/Share/results/':'/results':'rw'
+  -v '/mnt/user/Share/results/':'/app/results':'rw'
   -v '/dev/shm':'/dev/shm':'rw' 'YOUR TAG NAME'
 ```
 

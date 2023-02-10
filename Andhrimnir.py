@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from src.CreateExcelSheet import createExcelFile
-import credentials
+import results.credentials as credentials
 from src.CrawlPage import goThroughPage
 from selenium.webdriver.common.by import By
 PAGES = 3
