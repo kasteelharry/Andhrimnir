@@ -6,7 +6,7 @@ from src.CreateExcelSheet import createExcelFile
 import credentials
 from src.CrawlPage import goThroughPage
 from selenium.webdriver.common.by import By
-PAGES = 5
+PAGES = 3
 
 # The users using eetlijst.nl
 USERS = []
@@ -29,10 +29,12 @@ def combineUsersAndValues(users, values):
     combined = []
     for i, user in enumerate(users):
         try:
+            # Percentage and ratio
             combined.append([user, values[i], round((
-                values[i][1]/values[i][0]) * 100, 2)])
+                values[i][1]/values[i][0]) * 100, 1), 
+                values[i][0] // values[i][1]])
         except ZeroDivisionError:
-            combined.append([user, values[i], 0])
+            combined.append([user, values[i], 0, 0])
     return combined
 
 
@@ -51,7 +53,7 @@ driver = webdriver.Chrome(executable_path=path, options=options)
 driver.command_executor.set_timeout(40)
 driver.get('http://eetlijst.nl/login.php')
 # Wait for the page to load.
-driver.implicitly_wait(10)
+driver.implicitly_wait(5)
 
 username = driver.find_element(By.NAME, "login")
 password = driver.find_element(By.NAME, "pass")
