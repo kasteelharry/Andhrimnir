@@ -24,9 +24,11 @@ def getValueOfPage(element, users):
     imagesOnPage = []
     result = []
     for i, elem in enumerate(rows):
-        if len(elem) > 40:
+        # 40 and 35  are relative elements. Deletion of people and adding people
+        # Will change this value and break the script.
+        if len(elem) < 40 and len(elem) > 35:
             try:
-                images = elem.findAll('img')
+                images = elem.find_all('img')
                 if (str(elem.get("title")) == "Verwijder deze regel" or
                         str(elem.get("title")) == "Sla deze regel op"):
                     pass
@@ -63,7 +65,6 @@ def goThroughPage(driver):
     soup = BeautifulSoup(content, features="html5lib")
     # The form with all the data
     element = soup.find('form', attrs={'name': 'kosten'})
-
     users = getUsers(element)
     result = getValueOfPage(element, users)
     return [result, users]
