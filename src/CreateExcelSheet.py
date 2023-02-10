@@ -28,12 +28,12 @@ def write_values(values, worksheet, row, col):
 
 def createExcelFile(values):
     workbook = None
-    # if platform == "linux" or platform == "linux2":
-    #     # Linux
-    #     workbook = xlsxwriter.Workbook("/results/EetlijstData.xlsx")
-    # elif platform == "win32":
-    #     # Windows...
-    workbook = xlsxwriter.Workbook("EetlijstData.xlsx")
+    if platform == "linux" or platform == "linux2":
+        # Linux
+        workbook = xlsxwriter.Workbook("/results/EetlijstData.xlsx")
+    elif platform == "win32":
+        # Windows...
+        workbook = xlsxwriter.Workbook("EetlijstData.xlsx")
 
     worksheet = workbook.add_worksheet()
     # Start from the first cell. Rows and columns are zero indexed.
