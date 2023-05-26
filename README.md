@@ -1,4 +1,8 @@
-# Andhrimnir
+# Andhrimnir (Deprecated)
+
+## Currently Andhrimir is broken
+
+Since the website was overhauled, this script has been broken. Although I could make a new version or ask the developers access to their GraphQL API, I have  no intention to do so. This code is broken and that is okey. It was a fun small project to work on and I'll leave it here for posterity (or my future self).
 
 The goal of this github repo is to scrape the popular Dutch website [eetlijst](http://www.eetlijst.nl). This website is used by many student houses to keep track of who is joining for dinner and who is cooking. Unfortunately it is very difficult to keep track of who cooked the most or what someone's cooking to eating ratio is. That is why I build this webscraper. It scrapes the last 5 pages of eetlijst history and builds an Excel file with the results in the results folder.
 
